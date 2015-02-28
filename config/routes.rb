@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'pages#home'
+  
+  get 'pages/home'
+
+  get 'pages/join'
+
+  get   '/login', :to => 'authorization#login', :as => :login
+
+  get   '/signup', :to => 'authorization#create', :as => :signup
+
+  get '/auth/:provider/callback', :to => 'authorization#create'
+
+  get '/logout', :to => 'authorization#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
